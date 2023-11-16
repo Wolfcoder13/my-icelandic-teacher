@@ -47,16 +47,20 @@ const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, optio
 
 
 const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctAnswer, onAnswer }) => {
-  const [constructedAnswer, setConstructedAnswer] = React.useState<string[]>([]);
+  const [selectedWords, setSelectedWords] = React.useState<string[]>([]);
 
   const handleWordClick = (word: string) => {
-    setConstructedAnswer([...constructedAnswer, word]);
+    if (selectedWords.includes(word)) {
+      setSelectedWords(selectedWords.filter(w => w !== word));
+    } else {
+      setSelectedWords([...selectedWords, word]);
+    }
   };
 
   const handleSubmit = () => {
-    const answer = constructedAnswer.join(' ');
+    const answer = selectedWords.join(' ');
     onAnswer(answer, answer === correctAnswer);
-    setConstructedAnswer([]); // Reset for next attempt
+    setSelectedWords([]); // Reset for next attempt
   };
 
   return (
@@ -67,7 +71,9 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
           <button
             key={index}
             onClick={() => handleWordClick(word)}
-            className="mx-1 px-2 py-1 bg-blue-200 hover:bg-blue-300 rounded"
+            className={`mx-1 px-2 py-1 rounded ${
+              selectedWords.includes(word) ? 'bg-blue-400' : 'bg-blue-200 hover:bg-blue-300'
+            }`}
           >
             {word}
           </button>
@@ -75,7 +81,7 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
       </div>
       <div className="my-4">
         <p>Constructed Sentence:</p>
-        <p className="italic">{constructedAnswer.join(' ')}</p>
+        <p className="italic">{selectedWords.join(' ')}</p>
       </div>
       <button 
         onClick={handleSubmit} 
@@ -89,6 +95,7 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
 
 
 
+
 const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) => {
   // Implement your matching logic here
   return (
@@ -99,13 +106,13 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
   );
 };
 
-const shuffle = (array: string[]) => { 
-  for (let i = array.length - 1; i > 0; i--) { 
-    const j = Math.floor(Math.random() * (i + 1)); 
-    [array[i], array[j]] = [array[j], array[i]]; 
-  } 
-  return array; 
-}; 
+const shuffle = (array: string[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 const LessonPage: any = ({ params }: { params: { id: number } }) => {
   const handleAnswer = (answer: string, isCorrect: boolean) => {
@@ -138,12 +145,12 @@ const LessonPage: any = ({ params }: { params: { id: number } }) => {
             onAnswer={handleAnswer}
           />
 
-<WordOrderQuestion
-        question="Translate 'My name is Andri' to Icelandic:"
-        words={["Ég", "heiti", "halló", "Takk", "Andri"]} // Example words
-        correctAnswer="Ég heiti Andri"
-        onAnswer={handleAnswer}
-      />
+          <WordOrderQuestion
+            question="Translate 'My name is Andri' to Icelandic:"
+            words={["heiti", "halló", "Ég", "Takk", "Andri"]} // Example words
+            correctAnswer="Ég heiti Andri"
+            onAnswer={handleAnswer}
+          />
 
         </div>
       </div>
