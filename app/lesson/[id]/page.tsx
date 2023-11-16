@@ -117,19 +117,22 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
     if (selectedEnglish) {
       const pair = pairs.find(p => p.english === selectedEnglish);
       if (pair && pair.icelandic === word) {
-        const updatedPairs = new Set(matchedPairs);
-        updatedPairs.add(selectedEnglish);
-        setMatchedPairs(updatedPairs);
-        setSelectedEnglish(null);
-        if (updatedPairs.size === pairs.length) {
+        setMatchedPairs(new Set([...matchedPairs, selectedEnglish]));
+        setSelectedEnglish(null); // Deselect on correct match
+        if (matchedPairs.size + 1 === pairs.length) {
           onAnswer(true);
           setMatchedPairs(new Set());
         }
       } else {
         setIsShaking(true);
         setTimeout(() => setIsShaking(false), 500); // Reset shaking after animation duration
+        setSelectedEnglish(null); // Deselect on incorrect match
       }
     }
+  };
+
+  const isIcelandicWordMatched = (icelandicWord: string) => {
+    return pairs.some(pair => pair.icelandic === icelandicWord && matchedPairs.has(pair.english));
   };
 
   return (
@@ -140,10 +143,10 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
             key={pair.english}
             onClick={() => handleEnglishClick(pair.english)}
             className={`my-1 p-2 rounded ${selectedEnglish === pair.english
-                ? 'bg-blue-400 border-2 border-blue-600'
-                : matchedPairs.has(pair.english)
-                  ? 'bg-gray-400'
-                  : 'bg-blue-200 hover:bg-blue-300'
+              ? 'bg-blue-400 border-2 border-blue-600'
+              : matchedPairs.has(pair.english)
+                ? 'bg-gray-400'
+                : 'bg-blue-200 hover:bg-blue-300'
               }`}
             disabled={matchedPairs.has(pair.english)}
           >
@@ -156,9 +159,9 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
           <button
             key={index}
             onClick={() => handleIcelandicClick(word)}
-            className={`my-1 p-2 rounded ${Array.from(matchedPairs).includes(word) ? 'bg-gray-400' : 'bg-green-200 hover:bg-green-300'
+            className={`my-1 p-2 rounded ${isIcelandicWordMatched(word) ? 'bg-gray-400' : 'bg-green-200 hover:bg-green-300'
               }`}
-            disabled={Array.from(matchedPairs).includes(word)}
+            disabled={isIcelandicWordMatched(word)}
           >
             {word}
           </button>
