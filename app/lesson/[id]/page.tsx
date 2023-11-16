@@ -141,7 +141,7 @@ const LessonPage: any = ({ params }: { params: { id: number } }) => {
 <WordOrderQuestion
         question="Translate 'My name is Andri' to Icelandic:"
         words={["Ég", "heiti", "halló", "Takk", "Andri"]} // Example words
-        correctAnswer="Ég heiti"
+        correctAnswer="Ég heiti Andri"
         onAnswer={handleAnswer}
       />
 
