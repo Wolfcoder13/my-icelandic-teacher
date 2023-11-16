@@ -76,8 +76,8 @@ export default function Home() {
                 />
                 <LessonCard
                   href='/lesson/two'
-                  title='Greetings & Introductions'
-                  text='Here we learn how to say hello, say your name, ask others for their name, and say good bye.'
+                  title='Greetings & More'
+                  text='Here we keep learning hellos, but expand a little on the vocabulary.'
                   svg={<svg className="w-16 h-16 fill-icelandic-red group-hover:fill-white"
                     fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.983 281.983">
                     <g>
