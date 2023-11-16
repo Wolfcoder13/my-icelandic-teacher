@@ -99,9 +99,9 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
 const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) => {
   const [shuffledIcelandicWords, setShuffledIcelandicWords] = useState<string[]>([]);
   const [selectedEnglish, setSelectedEnglish] = useState<string | null>(null);
-  const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
+  const [matchedPairs, setMatchedPairs] = useState<string[]>([]);
   const [isShaking, setIsShaking] = useState(false);
-  
+
   useEffect(() => {
     // Shuffle Icelandic words and set to state
     const icelandicWords = pairs.map(pair => pair.icelandic);
@@ -137,13 +137,12 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
           <button
             key={pair.english}
             onClick={() => handleEnglishClick(pair.english)}
-            className={`my-1 p-2 rounded ${
-              selectedEnglish === pair.english
+            className={`my-1 p-2 rounded ${selectedEnglish === pair.english
                 ? 'bg-blue-400 border-2 border-blue-600'
                 : matchedPairs.has(pair.english)
-                ? 'bg-gray-400'
-                : 'bg-blue-200 hover:bg-blue-300'
-            }`}
+                  ? 'bg-gray-400'
+                  : 'bg-blue-200 hover:bg-blue-300'
+              }`}
             disabled={matchedPairs.has(pair.english)}
           >
             {pair.english}
@@ -155,9 +154,8 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
           <button
             key={index}
             onClick={() => handleIcelandicClick(word)}
-            className={`my-1 p-2 rounded ${
-              Array.from(matchedPairs).includes(word) ? 'bg-gray-400' : 'bg-green-200 hover:bg-green-300'
-            }`}
+            className={`my-1 p-2 rounded ${Array.from(matchedPairs).includes(word) ? 'bg-gray-400' : 'bg-green-200 hover:bg-green-300'
+              }`}
             disabled={Array.from(matchedPairs).includes(word)}
           >
             {word}
