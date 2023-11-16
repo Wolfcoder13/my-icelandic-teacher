@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface MultipleChoiceProps {
   question: string;
@@ -19,14 +19,15 @@ interface WordOrderProps {
 
 
 interface MatchingPair {
-  icelandic: string;
   english: string;
+  icelandic: string;
 }
 
 interface MatchingQuestionProps {
   pairs: MatchingPair[];
-  onAnswer: (answer: MatchingPair) => void; // Adjust as needed for your implementation
+  onAnswer: (isCorrect: boolean) => void;
 }
+
 
 const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, options, correctAnswer, onAnswer }) => {
   return (
@@ -71,9 +72,8 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
           <button
             key={index}
             onClick={() => handleWordClick(word)}
-            className={`mx-1 px-2 py-1 rounded ${
-              selectedWords.includes(word) ? 'bg-blue-400' : 'bg-blue-200 hover:bg-blue-300'
-            }`}
+            className={`mx-1 px-2 py-1 rounded ${selectedWords.includes(word) ? 'bg-blue-400' : 'bg-blue-200 hover:bg-blue-300'
+              }`}
           >
             {word}
           </button>
@@ -83,8 +83,8 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
         <p>Constructed Sentence:</p>
         <p className="italic">{selectedWords.join(' ')}</p>
       </div>
-      <button 
-        onClick={handleSubmit} 
+      <button
+        onClick={handleSubmit}
         className="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
         Submit Answer
@@ -97,22 +97,86 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
 
 
 const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) => {
-  // Implement your matching logic here
+  const [shuffledIcelandicWords, setShuffledIcelandicWords] = useState<string[]>([]);
+  const [selectedEnglish, setSelectedEnglish] = useState<string | null>(null);
+  const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
+  const [isShaking, setIsShaking] = useState(false);
+  
+  useEffect(() => {
+    // Shuffle Icelandic words and set to state
+    const icelandicWords = pairs.map(pair => pair.icelandic);
+    setShuffledIcelandicWords(shuffleArray(icelandicWords));
+  }, [pairs]);
+
+
+  const handleEnglishClick = (word: string) => {
+    setSelectedEnglish(word === selectedEnglish ? null : word);
+  };
+
+  const handleIcelandicClick = (word: string) => {
+    if (selectedEnglish) {
+      const pair = pairs.find(p => p.english === selectedEnglish);
+      if (pair && pair.icelandic === word) {
+        setMatchedPairs(new Set([...matchedPairs, selectedEnglish]));
+        setSelectedEnglish(null);
+        if (matchedPairs.size + 1 === pairs.length) {
+          onAnswer(true);
+          setMatchedPairs(new Set());
+        }
+      } else {
+        setIsShaking(true);
+        setTimeout(() => setIsShaking(false), 500); // Reset shaking after animation duration
+      }
+    }
+  };
+
   return (
-    <div>
-      <p>Match the Icelandic words to their English translations:</p>
-      {/* Interactive component here */}
+    <div className={`flex justify-between ${isShaking ? 'animate-shake' : ''}`}>
+      <div className="flex flex-col">
+        {pairs.map(pair => (
+          <button
+            key={pair.english}
+            onClick={() => handleEnglishClick(pair.english)}
+            className={`my-1 p-2 rounded ${
+              selectedEnglish === pair.english
+                ? 'bg-blue-400 border-2 border-blue-600'
+                : matchedPairs.has(pair.english)
+                ? 'bg-gray-400'
+                : 'bg-blue-200 hover:bg-blue-300'
+            }`}
+            disabled={matchedPairs.has(pair.english)}
+          >
+            {pair.english}
+          </button>
+        ))}
+      </div>
+      <div className="flex flex-col">
+        {shuffledIcelandicWords.map((word, index) => (
+          <button
+            key={index}
+            onClick={() => handleIcelandicClick(word)}
+            className={`my-1 p-2 rounded ${
+              Array.from(matchedPairs).includes(word) ? 'bg-gray-400' : 'bg-green-200 hover:bg-green-300'
+            }`}
+            disabled={Array.from(matchedPairs).includes(word)}
+          >
+            {word}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
 
-const shuffle = (array: string[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
   }
-  return array;
+  return shuffledArray;
 };
+
 
 const LessonPage: any = ({ params }: { params: { id: number } }) => {
   const handleAnswer = (answer: string, isCorrect: boolean) => {
@@ -125,9 +189,9 @@ const LessonPage: any = ({ params }: { params: { id: number } }) => {
     // Additional logic for handling correct/incorrect answer
   };
 
-  const handleAnswer3 = (answer: string) => {
-    console.log("Answer selected:", answer);
-    // Additional logic for handling correct/incorrect answer
+  const handleMatchingAnswer = (isCorrect: boolean) => {
+    console.log("All pairs matched correctly:", isCorrect);
+    // Additional logic as needed
   };
 
   return (
@@ -150,6 +214,15 @@ const LessonPage: any = ({ params }: { params: { id: number } }) => {
             words={["heiti", "halló", "Ég", "Takk", "Andri"]} // Example words
             correctAnswer="Ég heiti Andri"
             onAnswer={handleAnswer}
+          />
+
+          <MatchingQuestion
+            pairs={[
+              { english: "Goodbye", icelandic: "Bless" },
+              { english: "Yes", icelandic: "Já" },
+              { english: "No", icelandic: "Nei" }
+            ]}
+            onAnswer={handleMatchingAnswer}
           />
 
         </div>
