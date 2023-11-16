@@ -40,11 +40,11 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
     if (selectedEnglish) {
       const pair = pairs.find(p => p.english === selectedEnglish);
       if (pair && pair.icelandic === word) {
-        setMatchedPairs(new Set([...matchedPairs, selectedEnglish]));
+        // Convert Set to Array, add the new item, then convert back to Set
+        setMatchedPairs(new Set([...Array.from(matchedPairs), selectedEnglish]));
         setSelectedEnglish(null); // Deselect on correct match
         if (matchedPairs.size + 1 === pairs.length) {
           onAnswer(true);
-          setMatchedPairs(new Set());
         }
       } else {
         setIsShaking(true);
