@@ -15,7 +15,7 @@ interface Question {
 }
 
 
-const LessonPage: React.FC<{ params: { id: number } }> = ({ params }) => {
+const LessonPage: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
   const [questions, setQuestions] = React.useState<Question[]>([]);
   const [failedAttempts, setFailedAttempts] = React.useState<number[]>([]);
@@ -23,7 +23,7 @@ const LessonPage: React.FC<{ params: { id: number } }> = ({ params }) => {
 
   const handleAnswer = (answer: string, isCorrect: boolean) => {
     console.log("Answer selected:", answer, "Is Correct:", isCorrect);
-  
+
     if (isCorrect) {
       setCurrentQuestionIndex(prevIndex => {
         const nextIndex = prevIndex + 1;
@@ -41,94 +41,36 @@ const LessonPage: React.FC<{ params: { id: number } }> = ({ params }) => {
       setFailedAttempts(newFailedAttempts);
     }
   };
-  
 
-const handleAnswerMatching = (isCorrect: boolean) => {
-  console.log("Answer Is Correct:", isCorrect);
 
-  if (isCorrect) {
-    setCurrentQuestionIndex(prevIndex => {
-      const nextIndex = prevIndex + 1;
-      if (nextIndex < initialQuestions.length) {
-        return nextIndex;
-      } else {
-        setIsLessonComplete(true); // All questions are done
-        return prevIndex; // Keep the index unchanged
-      }
-    });
-  } else {
-    let newFailedAttempts = [...failedAttempts];
-    newFailedAttempts[currentQuestionIndex]++;
-    setFailedAttempts(newFailedAttempts);
-  }
-};
+  const handleAnswerMatching = (isCorrect: boolean) => {
+    console.log("Answer Is Correct:", isCorrect);
 
-  
+    if (isCorrect) {
+      setCurrentQuestionIndex(prevIndex => {
+        const nextIndex = prevIndex + 1;
+        if (nextIndex < initialQuestions.length) {
+          return nextIndex;
+        } else {
+          setIsLessonComplete(true); // All questions are done
+          return prevIndex; // Keep the index unchanged
+        }
+      });
+    } else {
+      let newFailedAttempts = [...failedAttempts];
+      newFailedAttempts[currentQuestionIndex]++;
+      setFailedAttempts(newFailedAttempts);
+    }
+  };
+
+
 
   // Initial questions array
   const initialQuestions: Question[] = [
     {
       type: 'MultipleChoice',
       props: {
-        question: "What is 'Hello' in Icelandic?",
-        options: ['Halló', 'Bless', 'Takk'],
-        correctAnswer: 'Halló',
-        onAnswer: handleAnswer
-      }
-    },
-    {
-      type: 'WordOrder',
-      props: {
-        question: "Translate 'My name is Andri' to Icelandic:",
-        words: ['heiti', 'halló', 'Ég', 'Takk', 'Andri'],
-        correctAnswer: 'Ég heiti Andri',
-        onAnswer: handleAnswer
-      }
-    },
-    {
-      type: 'Matching',
-      props: {
-        pairs: [
-          { english: 'Goodbye', icelandic: 'Bless' },
-          { english: 'Yes', icelandic: 'Já' },
-          { english: 'No', icelandic: 'Nei' }
-        ],
-        onAnswer: handleAnswerMatching
-      }
-    },
-    {
-      type: 'MultipleChoice',
-      props: {
-        question: "What is 'Bye' in Icelandic?",
-        options: ['Halló', 'Bless', 'Takk'],
-        correctAnswer: 'Bless',
-        onAnswer: handleAnswer
-      }
-    },
-    {
-      type: 'WordOrder',
-      props: {
-        question: "Translate 'Hello Andri' to Icelandic:",
-        words: ['heiti', 'Halló', 'Ég', 'Takk', 'Andri'],
-        correctAnswer: 'Halló Andri',
-        onAnswer: handleAnswer
-      }
-    },
-    {
-      type: 'Matching',
-      props: {
-        pairs: [
-          { english: 'I', icelandic: 'Ég' },
-          { english: 'Bye', icelandic: 'Bless' },
-          { english: 'Yes', icelandic: 'Já' }
-        ],
-        onAnswer: handleAnswerMatching
-      }
-    },
-    {
-      type: 'MultipleChoice',
-      props: {
-        question: "What is 'Thanks' in Icelandic?",
+        question: "What is 'Thank you' in Icelandic?",
         options: ['Halló', 'Bless', 'Takk'],
         correctAnswer: 'Takk',
         onAnswer: handleAnswer
@@ -137,9 +79,9 @@ const handleAnswerMatching = (isCorrect: boolean) => {
     {
       type: 'WordOrder',
       props: {
-        question: "Translate 'I am Andri' to Icelandic:",
+        question: "Translate 'Thank you. My name is Andri' to Icelandic:",
         words: ['heiti', 'halló', 'Ég', 'Takk', 'Andri'],
-        correctAnswer: 'Ég heiti Andri',
+        correctAnswer: 'Takk Ég heiti Andri',
         onAnswer: handleAnswer
       }
     },
@@ -147,19 +89,77 @@ const handleAnswerMatching = (isCorrect: boolean) => {
       type: 'Matching',
       props: {
         pairs: [
+          { english: 'Please', icelandic: 'Vinsamlegast' },
           { english: 'Hello', icelandic: 'Halló' },
-          { english: 'Yes', icelandic: 'Já' },
           { english: 'No', icelandic: 'Nei' }
         ],
         onAnswer: handleAnswerMatching
       }
     },
     {
+      type: 'MultipleChoice',
+      props: {
+        question: "What does 'Góðan dag' mean in English?",
+        options: ['Good night', 'Good morning', 'Good day'],
+        correctAnswer: 'Good day',
+        onAnswer: handleAnswer
+      }
+    },
+    {
       type: 'WordOrder',
       props: {
-        question: "Translate 'Hello, what is your name?' to Icelandic:",
-        words: ['heiti', 'Halló', 'Ég', 'hvað', 'Andri', 'heitir', 'þú'],
-        correctAnswer: 'Halló hvað heitir þú',
+        question: "Translate 'Halló Andri' to English:",
+        words: ['name', 'Hello', 'my', 'Takk', 'is', 'Andri'],
+        correctAnswer: 'Hello Andri',
+        onAnswer: handleAnswer
+      }
+    },
+    {
+      type: 'Matching',
+      props: {
+        pairs: [
+          { english: 'Morning', icelandic: 'Morgunn' },
+          { english: 'Night', icelandic: 'Nótt' },
+          { english: 'Day', icelandic: 'Dagur' }
+        ],
+        onAnswer: handleAnswerMatching
+      }
+    },
+    {
+      type: 'MultipleChoice',
+      props: {
+        question: "How do you say 'I do not understand' in Icelandic?",
+        options:  ['Ég skil ekki', 'Ég er frá', 'Ég veit'],
+        correctAnswer: 'Ég skil ekki',
+        onAnswer: handleAnswer
+      }
+    },
+    {
+      type: 'WordOrder',
+      props: {
+        question: "Translate 'Can you help me?' to Icelandic:",
+        words: ['hjálpað', 'mér', 'Getur', 'þú', 'að'],
+        correctAnswer: 'Getur þú hjálpað mér',
+        onAnswer: handleAnswer
+      }
+    },
+    {
+      type: 'Matching',
+      props: {
+        pairs:  [
+          { english: 'Help', icelandic: 'Hjálp' },
+          { english: 'Understand', icelandic: 'Skilja' },
+          { english: 'Speak', icelandic: 'Tala' }
+          ],
+        onAnswer: handleAnswerMatching
+      }
+    },
+    {
+      type: 'WordOrder',
+      props: {
+        question: "Translate 'Do you speak English?' to Icelandic:",
+        words: ['Talar', 'þú', 'ensku', 'segir'],
+        correctAnswer: 'Talar þú ensku',
         onAnswer: handleAnswer
       }
     },
@@ -171,7 +171,7 @@ const handleAnswerMatching = (isCorrect: boolean) => {
     setFailedAttempts(new Array(initialQuestions.length).fill(0));
     console.log("Questions Length:", initialQuestions.length); // Add this line for debugging
   }, []);
-  
+
 
 
   // Render current question based on the type
