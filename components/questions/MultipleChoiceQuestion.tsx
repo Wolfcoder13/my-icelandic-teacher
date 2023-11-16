@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface MultipleChoiceProps {
+export interface MultipleChoiceProps {
   question: string;
   options: string[];
   correctAnswer: string;

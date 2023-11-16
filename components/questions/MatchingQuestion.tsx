@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-interface MatchingPair {
+export interface MatchingPair {
   english: string;
   icelandic: string;
 }
 
-interface MatchingQuestionProps {
+export interface MatchingQuestionProps {
   pairs: MatchingPair[];
   onAnswer: (isCorrect: boolean) => void;
 }

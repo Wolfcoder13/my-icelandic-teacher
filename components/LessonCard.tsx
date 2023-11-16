@@ -12,7 +12,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ href, title, text, svg }) => {
     <a href={href}
       className="transition-all  duration-1000 bg-white hover:bg-icelandic-blue  hover:shadow-xl m-2 p-4 relative z-40 group  ">
       <div
-        className=" absolute  bg-icelandic-blue/50 top-0 left-0 w-24 h-1 z-30  transition-all duration-200   group-hover:bg-white group-hover:w-1/2  ">
+        className=" absolute  bg-icelandic-blue top-0 left-0 w-24 h-1 z-30  transition-all duration-200   group-hover:bg-white group-hover:w-1/2  ">
       </div>
       <div className="py-2 px-9 relative  ">
         {svg}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-interface WordOrderProps {
+export interface WordOrderProps {
   question: string;
   words: string[]; // Words to be arranged
   correctAnswer: string; // Correct sentence
