@@ -99,7 +99,7 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
 const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) => {
   const [shuffledIcelandicWords, setShuffledIcelandicWords] = useState<string[]>([]);
   const [selectedEnglish, setSelectedEnglish] = useState<string | null>(null);
-  const [matchedPairs, setMatchedPairs] = useState<string[]>([]);
+  const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
   const [isShaking, setIsShaking] = useState(false);
 
   useEffect(() => {
@@ -117,9 +117,11 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
     if (selectedEnglish) {
       const pair = pairs.find(p => p.english === selectedEnglish);
       if (pair && pair.icelandic === word) {
-        setMatchedPairs(new Set([...matchedPairs, selectedEnglish]));
+        const updatedPairs = new Set(matchedPairs);
+        updatedPairs.add(selectedEnglish);
+        setMatchedPairs(updatedPairs);
         setSelectedEnglish(null);
-        if (matchedPairs.size + 1 === pairs.length) {
+        if (updatedPairs.size === pairs.length) {
           onAnswer(true);
           setMatchedPairs(new Set());
         }
