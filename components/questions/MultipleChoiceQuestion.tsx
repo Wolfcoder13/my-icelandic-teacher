@@ -17,14 +17,14 @@ const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, optio
   };
 
   return (
-    <div>
+    <div className='flex flex-col items-center'>
       <p>{question}</p>
       <div className="flex flex-wrap gap-2">
         {options.map((option, index) => (
           <button
             key={index}
             onClick={() => setSelectedOption(option)}
-            className={`px-2 py-1 rounded ${selectedOption === option ? 'bg-blue-400' : 'bg-blue-200 hover:bg-blue-300'}`}
+            className={`p-2 mt-3 rounded border-2 ${selectedOption === option ? 'shadow-inner bg-white border-solid border-2 border-icelandic-red text-icelandic-blue' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent text-white'}`}
           >
             {option}
           </button>
@@ -32,7 +32,7 @@ const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, optio
       </div>
       <button
         onClick={handleSubmit}
-        className="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        className="mt-4 bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
         disabled={selectedOption === null}
       >
         Submit Answer

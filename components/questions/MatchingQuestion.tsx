@@ -59,17 +59,17 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
   };
 
   return (
-    <div className={`flex justify-between ${isShaking ? 'animate-shake' : ''}`}>
+    <div className={`flex justify-around ${isShaking ? 'animate-shake' : ''}`}>
       <div className="flex flex-col">
         {pairs.map(pair => (
           <button
             key={pair.english}
             onClick={() => handleEnglishClick(pair.english)}
-            className={`my-1 p-2 rounded ${selectedEnglish === pair.english
-              ? 'bg-blue-400'
+            className={`my-1 p-2 rounded border-2 ${selectedEnglish === pair.english
+              ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue'
               : matchedPairs.has(pair.english)
-                ? 'bg-gray-400'
-                : 'bg-blue-200 hover:bg-blue-300'
+                ? 'bg-gray-400 border-transparent text-white'
+                : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent text-white' 
               }`}
             disabled={matchedPairs.has(pair.english)}
           >
@@ -82,7 +82,7 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
           <button
             key={index}
             onClick={() => handleIcelandicClick(word)}
-            className={`my-1 p-2 rounded ${isIcelandicWordMatched(word) ? 'bg-gray-400' : 'bg-green-200 hover:bg-green-300'
+            className={`my-1 p-2 rounded text-white border-2 ${isIcelandicWordMatched(word) ? 'bg-gray-400 border-transparent' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent'
               }`}
             disabled={isIcelandicWordMatched(word)}
           >

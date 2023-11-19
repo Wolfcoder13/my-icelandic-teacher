@@ -33,20 +33,20 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
           <button
             key={index}
             onClick={() => handleWordClick(word)}
-            className={`mx-1 px-2 py-1 rounded ${selectedWords.includes(word) ? 'bg-blue-400' : 'bg-blue-200 hover:bg-blue-300'
+            className={`mx-1 p-2 rounded border-2 ${selectedWords.includes(word) ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent  text-white'
               }`}
           >
             {word}
           </button>
         ))}
       </div>
-      <div className="my-4">
+      <div className="my-4 h-12">
         <p>Constructed Sentence:</p>
-        <p className="italic">{selectedWords.join(' ')}</p>
+        <p className="font-bold mt-2">{selectedWords.join(' ')}</p>
       </div>
       <button
         onClick={handleSubmit}
-        className="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        className="mt-4 bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
       >
         Submit Answer
       </button>
