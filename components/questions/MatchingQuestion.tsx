@@ -66,7 +66,7 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
             key={pair.english}
             onClick={() => handleEnglishClick(pair.english)}
             className={`my-1 p-2 rounded ${selectedEnglish === pair.english
-              ? 'bg-blue-400 border-2 border-blue-600'
+              ? 'bg-blue-400'
               : matchedPairs.has(pair.english)
                 ? 'bg-gray-400'
                 : 'bg-blue-200 hover:bg-blue-300'
