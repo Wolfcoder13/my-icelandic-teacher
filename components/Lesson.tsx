@@ -15,10 +15,11 @@ export interface Question {
 
 export interface LessonProps {
   initialQuestions: Question[];
+  lessonNumber: number;
 }
 
 
-const Lesson: React.FC<LessonProps> = ({ initialQuestions }) => {
+const Lesson: React.FC<LessonProps> = ({ initialQuestions, lessonNumber }) => {
   const [currentInitialQuestionIndex, setCurrentInitialQuestionIndex] = useState(0);
   const [currentIncorrectQuestionIndex, setCurrentIncorrectQuestionIndex] = useState(0);
   const [incorrectQuestions, setIncorrectQuestions] = useState<number[]>([]);
@@ -124,7 +125,7 @@ const Lesson: React.FC<LessonProps> = ({ initialQuestions }) => {
           </>
         ) : (
           <>
-            <h1 className="text-xl font-semibold text-gray-800 mb-4">Lesson</h1>
+            <h1 className="text-xl font-semibold text-gray-800 mb-4">Lesson {lessonNumber}.</h1>
             {showIncorrectMessage && (
               <p className="text-red-500 text-center my-2">
                 Incorrect answer. The correct answer is &quot;{correctAnswer}&quot;. Please try again!

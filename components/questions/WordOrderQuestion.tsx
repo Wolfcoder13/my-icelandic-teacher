@@ -33,7 +33,7 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
           <button
             key={index}
             onClick={() => handleWordClick(word)}
-            className={`mx-1 p-2 rounded border-2 ${selectedWords.includes(word) ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent  text-white'
+            className={`m-1 p-2 rounded border-2 ${selectedWords.includes(word) ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent  text-white'
               }`}
           >
             {word}

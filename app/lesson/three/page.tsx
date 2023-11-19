@@ -104,7 +104,7 @@ const initialQuestions: Question[] = [
 
 
 const LessonPage: React.FC = () => {
-  return <Lesson initialQuestions={initialQuestions} />;
+  return <Lesson initialQuestions={initialQuestions} lessonNumber={3}/>;
 };
 
 export default LessonPage;
