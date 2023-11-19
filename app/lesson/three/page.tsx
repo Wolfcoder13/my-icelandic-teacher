@@ -30,7 +30,7 @@ const initialQuestions: Question[] = [
         { english: 'Fire', icelandic: 'Eldur' },
         { english: 'Wind', icelandic: 'Vindur' }
       ],
-      onAnswer: (_) => {}
+      onAnswer: (_: any) => {}
     }
   },
   {
@@ -59,7 +59,7 @@ const initialQuestions: Question[] = [
         { english: 'Flower', icelandic: 'Blóm' },
         { english: 'Grass', icelandic: 'Gras' }
       ],
-      onAnswer: (_) => {}
+      onAnswer: (_: any) => {}
     }
   },
   {
@@ -88,7 +88,7 @@ const initialQuestions: Question[] = [
         { english: 'Rain', icelandic: 'Rigning' },
         { english: 'Cloud', icelandic: 'Ský' }
       ],
-      onAnswer: (_) => {}
+      onAnswer: (_: any) => {}
     }
   },
   {
