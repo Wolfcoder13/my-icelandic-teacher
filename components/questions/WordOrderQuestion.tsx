@@ -7,9 +7,23 @@ export interface WordOrderProps {
   onAnswer: (answer: string, isCorrect: boolean) => void;
 }
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
 
 const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctAnswer, onAnswer }) => {
-  const [selectedWords, setSelectedWords] = React.useState<string[]>([]);
+  const [selectedWords, setSelectedWords] = useState<string[]>([]);
+  const [shuffledWords, setShuffledWords] = useState<string[]>([]);
+
+  // Shuffle words on component mount
+  useEffect(() => {
+    setShuffledWords(shuffleArray(words));
+  }, [words]);
 
   const handleWordClick = (word: string) => {
     if (selectedWords.includes(word)) {
@@ -29,11 +43,11 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
     <div>
       <p>{question}</p>
       <div className="my-4">
-        {words.map((word, index) => (
+        {shuffledWords.map((word, index) => (
           <button
             key={index}
             onClick={() => handleWordClick(word)}
-            className={`m-1 p-2 rounded border-2 ${selectedWords.includes(word) ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent  text-white'
+            className={`m-1 p-2 rounded border-2 ${selectedWords.includes(word) ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue dark:text-icelandic-blue' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent  text-white'
               }`}
           >
             {word}
