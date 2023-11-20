@@ -40,7 +40,7 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <p>{question}</p>
       <div className="my-4">
         {shuffledWords.map((word, index) => (

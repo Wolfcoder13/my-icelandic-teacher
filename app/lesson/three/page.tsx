@@ -17,7 +17,7 @@ const initialQuestions: Question[] = [
     type: 'WordOrder',
     props: {
       question: "Translate 'I need help' to Icelandic:",
-      words: ['Ég', 'þarf', 'hjálp'],
+      words: ['Ég', 'þarf', 'hjálp', 'halló', 'Þú'],
       correctAnswer: 'Ég þarf hjálp',
       onAnswer: (_, __) => {}
     }
@@ -46,7 +46,7 @@ const initialQuestions: Question[] = [
     type: 'WordOrder',
     props: {
       question: "Translate 'The cat sleeps on the chair' to Icelandic:",
-      words: ['Kötturinn', 'sefur', 'á', 'stólnum'],
+      words: ['Kötturinn', 'sefur', 'á', 'stólnum', 'vaknar', 'borðinu', 'gólfinu'],
       correctAnswer: 'Kötturinn sefur á stólnum',
       onAnswer: (_, __) => {}
     }
@@ -75,7 +75,7 @@ const initialQuestions: Question[] = [
     type: 'WordOrder',
     props: {
       question: "Translate 'It is sunny today' to Icelandic:",
-      words: ['Það', 'er', 'sólríkt', 'í', 'dag'],
+      words: ['Það', 'er', 'sólríkt', 'í', 'dag', 'á', 'morgun'],
       correctAnswer: 'Það er sólríkt í dag',
       onAnswer: (_, __) => {}
     }

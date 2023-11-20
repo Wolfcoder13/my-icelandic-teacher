@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export interface MultipleChoiceProps {
   question: string;
@@ -7,8 +7,23 @@ export interface MultipleChoiceProps {
   onAnswer: (answer: string, isCorrect: boolean) => void;
 }
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
+
 const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, options, correctAnswer, onAnswer }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
+
+  // Shuffle options on component mount
+  useEffect(() => {
+    setShuffledOptions(shuffleArray(options));
+  }, [options]);
 
   const handleSubmit = () => {
     if (selectedOption !== null) {
@@ -20,7 +35,7 @@ const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, optio
     <div className='flex flex-col items-center'>
       <p>{question}</p>
       <div className="flex flex-wrap gap-2">
-        {options.map((option, index) => (
+        {shuffledOptions.map((option, index) => (
           <button
             key={index}
             onClick={() => setSelectedOption(option)}

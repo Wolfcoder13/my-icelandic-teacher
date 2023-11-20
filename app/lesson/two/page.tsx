@@ -95,7 +95,7 @@ const initialQuestions: Question[] = [
     type: 'WordOrder',
     props: {
       question: "Translate 'Do you speak English?' to Icelandic:",
-      words: ['Talar', 'þú', 'ensku', 'segir'],
+      words: ['Talar', 'þú', 'ensku', 'segir', 'halló'],
       correctAnswer: 'Talar þú ensku',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
