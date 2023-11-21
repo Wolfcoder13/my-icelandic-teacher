@@ -12,8 +12,9 @@ const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctA
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const [shuffledWords, setShuffledWords] = useState<string[]>([]);
 
-  // Shuffle words on component mount
+  // Shuffle words and reset state on component mount or when words change
   useEffect(() => {
+    setSelectedWords([]); // Reset selected words
     setShuffledWords(shuffleArray(words));
   }, [words]);
 
