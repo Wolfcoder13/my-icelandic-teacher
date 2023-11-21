@@ -13,8 +13,9 @@ const MultipleChoiceQuestion: React.FC<MultipleChoiceProps> = ({ question, optio
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
 
-  // Shuffle options on component mount
+  // Shuffle options and reset state on component mount or when options change
   useEffect(() => {
+    setSelectedOption(null); // Reset selected option
     setShuffledOptions(shuffleArray(options));
   }, [options]);
 
