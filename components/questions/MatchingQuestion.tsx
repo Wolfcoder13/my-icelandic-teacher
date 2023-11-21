@@ -22,6 +22,10 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
     // Shuffle Icelandic words and set to state
     const icelandicWords = pairs.map(pair => pair.icelandic);
     setShuffledIcelandicWords(shuffleArray(icelandicWords));
+
+    setSelectedEnglish(null);
+    setMatchedPairs(new Set());
+    setIsShaking(false);
   }, [pairs]);
 
 
