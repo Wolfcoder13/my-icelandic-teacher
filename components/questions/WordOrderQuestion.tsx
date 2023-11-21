@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { shuffleArray } from '../../utils/arrayUtils'
 
 export interface WordOrderProps {
   question: string;
@@ -6,15 +7,6 @@ export interface WordOrderProps {
   correctAnswer: string; // Correct sentence
   onAnswer: (answer: string, isCorrect: boolean) => void;
 }
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-  const shuffledArray = [...array];
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-  }
-  return shuffledArray;
-};
 
 const WordOrderQuestion: React.FC<WordOrderProps> = ({ question, words, correctAnswer, onAnswer }) => {
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
