@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { helloBubble } from '../assets/svgAssets';
+import { helloBubble } from '../components/svgAssets';
 
 import LessonCard from '../components/LessonCard'
 
@@ -22,21 +22,21 @@ export default function Home() {
                   href='/lesson/one'
                   title='1. Greetings & Introductions'
                   text='Here we learn how to say hello, say your name, ask others for their name, and say good bye.'
-                  svg={helloBubble()}
+                  svg={helloBubble}
                 />
 
                 <LessonCard
                   href='/lesson/two'
                   title='2. Greetings & More'
                   text='Here we keep learning hellos, but expand a little on the vocabulary.'
-                  svg={helloBubble()}
+                  svg={helloBubble}
                 />
 
                 <LessonCard
                   href='/lesson/three'
                   title='3. GPT GENERATED lesson'
                   text='This is probably wrong, and too hard because chatgpt tried creating the questions from scratch.'
-                  svg={helloBubble()}
+                  svg={helloBubble}
                 />
               </div>
             </div>

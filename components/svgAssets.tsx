@@ -1,10 +1,8 @@
-import React from "react"
 
 
-export const helloBubble = () => {
-  return (
+export const helloBubble = (
     <svg className="w-16 h-16 fill-icelandic-blue group-hover:fill-white"
-      fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.983 281.983">
+      fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.983 281.983">
       <g>
         <g>
           <path d="M173.031,29.851c-58.7-7.3-140.1,2.5-165.4,65.9c-10.6,26.4-12.9,63.9,11.2,84.9c28.3,24.6,65.6,19.7,100.6,21.1l0,0
@@ -36,4 +34,3 @@ export const helloBubble = () => {
       </g>
     </svg>
   )
-}
