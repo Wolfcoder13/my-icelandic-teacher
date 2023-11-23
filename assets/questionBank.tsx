@@ -197,7 +197,7 @@ export const questionbankLevel2: Question[] = [
     }
   },
   {
-    type: 'MultipleChoice',
+    type: 'WordOrder',
     props: {
       question: "What is 'You are welcome' in Icelandic?",
       options: ['Verði', 'þér', 'að', 'góðu', 'takk', 'bless', 'þú'],
