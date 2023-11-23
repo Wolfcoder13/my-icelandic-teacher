@@ -74,8 +74,8 @@ export const questionbankLevel1: Question[] = [
     type: 'WordOrder',
     props: {
       question: "Translate 'My name is Panpan' to Icelandic:",
-      words: ['er', 'halló', 'Ég', 'Takk', 'Panpan', 'bless'],
-      correctAnswer: 'Ég er Panpan',
+      words: ['heiti', 'halló', 'Ég', 'Takk', 'Panpan', 'bless'],
+      correctAnswer: 'Ég heiti Panpan',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
