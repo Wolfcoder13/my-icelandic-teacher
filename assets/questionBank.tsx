@@ -200,7 +200,7 @@ export const questionbankLevel2: Question[] = [
     type: 'WordOrder',
     props: {
       question: "What is 'You are welcome' in Icelandic?",
-      options: ['Verði', 'þér', 'að', 'góðu', 'takk', 'bless', 'þú'],
+      words: ['Verði', 'þér', 'að', 'góðu', 'takk', 'bless', 'þú'],
       correctAnswer: 'Verði þér að góðu',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
