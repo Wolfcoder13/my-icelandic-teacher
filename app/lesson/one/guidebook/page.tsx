@@ -6,7 +6,7 @@ const GuideBookPage: React.FC = () => {
   return (
     <div className="bg-gray-700 dark:bg-gray-700 min-h-screen p-6 flex justify-center items-center">
       <div className="bg-white max-w-lg w-full rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-icelandic-blue mb-4">Fyrsta Lesson (First Lesson)</h2>
+        <h2 className="text-2xl font-semibold text-icelandic-blue mb-4">First Lesson</h2>
         <p className="text-gray-800">Welcome to your first lesson in Icelandic! This journey starts with some simple yet essential words and phrases that will lay the foundation for your Icelandic language skills.</p>
         <p className="text-gray-800 mt-4">In this lesson, our focus will be on introducing you to basic but crucial Icelandic words. By the end of this lesson, you will be familiar with greetings, and how to introduce yourself in Icelandic. Let&apos;s dive into the words we will cover:</p>
 
@@ -34,6 +34,18 @@ const GuideBookPage: React.FC = () => {
 
         <p className="text-gray-800">As you embark on this exciting journey to learn Icelandic, remember that patience and practice are your best tools. Enjoy the process, and take pride in every new word and phrase you learn.</p>
         <p className="text-gray-800"><strong>Til hamingju!</strong> (Congratulations!) You&apos;re on your way to speaking Icelandic!</p>
+        <div className='flex justify-between'>
+          <a href='/lesson/one'>
+            <button className="mt-4 bg-icelandic-blue hover:bg-icelandic-blue/90 text-white font-bold py-2 px-4 rounded" >
+              Go to lesson
+            </button>
+          </a>
+          <a href="/">
+            <button className="mt-4 bg-icelandic-blue hover:bg-icelandic-blue/90 text-white font-bold py-2 px-4 rounded" >
+              Go Home
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   );

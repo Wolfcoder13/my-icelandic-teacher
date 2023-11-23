@@ -28,7 +28,7 @@ export default function Home() {
 
                 <LessonCard
                   href='/lesson/two'
-                  notesLink='#'
+                  notesLink='/lesson/two/guidebook'
                   title='2. Greetings & More'
                   text='Here we keep learning hellos, but expand a little on the vocabulary.'
                   svg={helloBubble}
@@ -36,7 +36,7 @@ export default function Home() {
 
                 <LessonCard
                   href='/lesson/three'
-                  notesLink='#'
+                  notesLink='/lesson/three/guidebook'
                   title='3. GPT GENERATED lesson'
                   text='This is probably wrong, and too hard because chatgpt tried creating the questions from scratch.'
                   svg={helloBubble}

@@ -15,7 +15,7 @@ const LessonPage: React.FC = () => {
     setShuffledQuestions(shuffled);
   }, []);
 
-  return <Lesson initialQuestions={shuffledQuestions} lessonNumber={1} />;
+  return <Lesson initialQuestions={shuffledQuestions} lessonNumber={1} guideBookHref='/lesson/one/guidebook' />;
 };
 
 export default LessonPage;

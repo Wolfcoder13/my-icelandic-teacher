@@ -16,10 +16,11 @@ export interface Question {
 export interface LessonProps {
   initialQuestions: Question[];
   lessonNumber: number;
+  guideBookHref: string;
 }
 
 
-const Lesson: React.FC<LessonProps> = ({ initialQuestions, lessonNumber }) => {
+const Lesson: React.FC<LessonProps> = ({ initialQuestions, lessonNumber, guideBookHref }) => {
   const [currentInitialQuestionIndex, setCurrentInitialQuestionIndex] = useState(0);
   const [currentIncorrectQuestionIndex, setCurrentIncorrectQuestionIndex] = useState(0);
   const [incorrectQuestions, setIncorrectQuestions] = useState<number[]>([]);
@@ -139,7 +140,12 @@ const Lesson: React.FC<LessonProps> = ({ initialQuestions, lessonNumber }) => {
                 <div className="bg-icelandic-blue h-2.5 rounded-full" style={{ width: `${calculateProgress()}%` }}></div>
               </div>
               <p className="text-right text-sm text-gray-700 mt-2">{calculateProgress()}% Complete</p>
-              <div className='flex justify-end'>
+              <div className='flex justify-between'>
+                <a href={guideBookHref}>
+                  <button className="mt-4 bg-icelandic-blue hover:bg-icelandic-blue/90 text-white font-bold py-2 px-4 rounded" >
+                    Guide Book 
+                  </button>
+                </a>
                 <a href="/">
                   <button className="mt-4 bg-icelandic-blue hover:bg-icelandic-blue/90 text-white font-bold py-2 px-4 rounded" >
                     Go Home

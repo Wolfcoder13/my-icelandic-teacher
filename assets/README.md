@@ -12,9 +12,7 @@ Byrjum mjög einfalt. Orðin sem við viljum leggja áherslu á að fólk læri:
  - Vertu sæll (hugsa málið, passa nefna kk og kvk)
  - Bless
 
- Höfum fastast 10 spurningar í lesson 1 og ekki í random röð.
-
- 
+Höfum fastast 10 spurningar í lesson 1 og ekki í random röð.
 
 ## Lesson 2
 
