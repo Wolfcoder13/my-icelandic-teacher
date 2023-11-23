@@ -13,7 +13,7 @@ const GuideBookPage: React.FC = () => {
         <ul className="list-disc list-inside mb-4 text-gray-800">
           <li><strong>Ég</strong> (I): The foundation of many sentences, &quot;Ég&quot; is how you refer to yourself.</li>
           <li><strong>Þú</strong> (You): This is how you address someone else in a conversation.</li>
-          <li><strong>Já</strong> (Yes): A straightforward affirmation or agreement in Icelandic. It's used to confirm, approve, or assert something positively.</li>
+          <li><strong>Já</strong> (Yes): A straightforward affirmation or agreement in Icelandic. It&apos;s used to confirm, approve, or assert something positively.</li>
           <li><strong>Nei</strong> (No): The simple and direct way to negate, disagree, or refuse something in Icelandic.</li>
           <li><strong>Hvað</strong> (What): A key question word to begin inquiries.</li>
           <li><strong>Heitir</strong> (Called/Name): Often used in introductions to ask or tell someone&apos;s name.</li>
