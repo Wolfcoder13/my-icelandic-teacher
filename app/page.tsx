@@ -20,6 +20,7 @@ export default function Home() {
               <div className="grid grid-cols-1 gap-2 mt-12 sm:grid-cols-3 lg:mt-20   ">
                 <LessonCard
                   href='/lesson/one'
+                  notesLink='/lesson/one/guidebook'
                   title='1. Greetings & Introductions'
                   text='Here we learn how to say hello, say your name, ask others for their name, and say good bye.'
                   svg={helloBubble}
@@ -27,6 +28,7 @@ export default function Home() {
 
                 <LessonCard
                   href='/lesson/two'
+                  notesLink='#'
                   title='2. Greetings & More'
                   text='Here we keep learning hellos, but expand a little on the vocabulary.'
                   svg={helloBubble}
@@ -34,6 +36,7 @@ export default function Home() {
 
                 <LessonCard
                   href='/lesson/three'
+                  notesLink='#'
                   title='3. GPT GENERATED lesson'
                   text='This is probably wrong, and too hard because chatgpt tried creating the questions from scratch.'
                   svg={helloBubble}

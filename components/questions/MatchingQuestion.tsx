@@ -56,38 +56,44 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
   };
 
   return (
-    <div className={`flex justify-around ${isShaking ? 'animate-shake' : ''}`}>
-      <div className="flex flex-col">
-        {pairs.map(pair => (
-          <button
-            key={pair.english}
-            onClick={() => handleEnglishClick(pair.english)}
-            className={`my-1 p-2 rounded border-2 ${selectedEnglish === pair.english
-              ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue'
-              : matchedPairs.has(pair.english)
-                ? 'bg-gray-400 border-transparent text-white'
-                : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent text-white' 
-              }`}
-            disabled={matchedPairs.has(pair.english)}
-          >
-            {pair.english}
-          </button>
-        ))}
+    <div className={`flex flex-col items-center justify-center ${isShaking ? 'animate-shake' : ''}`}>
+      {/* Instruction Text */}
+      <div className="mb-4">
+        <p className="text-center font-semibold">Match the English words with their Icelandic counterparts:</p>
       </div>
-      <div className="flex flex-col">
-        {shuffledIcelandicWords.map((word, index) => (
-          <button
-            key={index}
-            onClick={() => handleIcelandicClick(word)}
-            className={`my-1 p-2 rounded text-white border-2 ${isIcelandicWordMatched(word) ? 'bg-gray-400 border-transparent' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent'
-              }`}
-            disabled={isIcelandicWordMatched(word)}
-          >
-            {word}
-          </button>
-        ))}
+      <div className="flex justify-around w-full">
+        <div className="flex flex-col">
+          {pairs.map(pair => (
+            <button
+              key={pair.english}
+              onClick={() => handleEnglishClick(pair.english)}
+              className={`my-1 p-2 rounded border-2 ${selectedEnglish === pair.english
+                ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue'
+                : matchedPairs.has(pair.english)
+                  ? 'bg-gray-400 border-transparent text-white'
+                  : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent text-white'
+                }`}
+              disabled={matchedPairs.has(pair.english)}
+            >
+              {pair.english}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-col">
+          {shuffledIcelandicWords.map((word, index) => (
+            <button
+              key={index}
+              onClick={() => handleIcelandicClick(word)}
+              className={`my-1 p-2 rounded text-white border-2 ${isIcelandicWordMatched(word) ? 'bg-gray-400 border-transparent' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent'
+                }`}
+              disabled={isIcelandicWordMatched(word)}
+            >
+              {word}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </div >
   );
 };
 
