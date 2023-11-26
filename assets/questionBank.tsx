@@ -104,20 +104,20 @@ export const questionbankLevel1: Question[] = [
 
 export const questionbankLevel2: Question[] = [
   {
-    type: 'MultipleChoice',
+    type: 'WordOrder',
     props: {
-      question: "What is 'Goodbye' in Icelandic?",
-      options: ['Halló', 'Bless', 'Takk'],
-      correctAnswer: 'Bless',
+      question: "What does 'Ég heiti ekki Sveinn' mean in Icelandic?",
+      words: ['My', 'name', 'is', 'not', 'Sveinn'],
+      correctAnswer: 'My name is not Sveinn',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
   {
     type: 'WordOrder',
     props: {
-      question: "Translate 'Thank you. My name is Andri' to Icelandic:",
-      words: ['heiti', 'halló', 'Ég', 'Takk', 'Andri'],
-      correctAnswer: 'Takk Ég heiti Andri',
+      question: "Translate 'His name is Sveinn' to Icelandic:",
+      words: ['Hann', 'heitir', 'Sveinn', 'frá', 'íslensku'],
+      correctAnswer: 'Hann heitir Sveinn',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
@@ -125,9 +125,10 @@ export const questionbankLevel2: Question[] = [
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Yes', icelandic: 'Já' },
-        { english: 'Hello', icelandic: 'Halló' },
-        { english: 'No', icelandic: 'Nei' }
+        { english: 'He', icelandic: 'Hann' },
+        { english: 'She', icelandic: 'Hún' },
+        { english: 'Fun', icelandic: 'Gaman' },
+        { english: 'Not', icelandic: 'ekki' },
       ],
       onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
@@ -135,18 +136,27 @@ export const questionbankLevel2: Question[] = [
   {
     type: 'MultipleChoice',
     props: {
-      question: "What does 'Góðan daginn' mean in English?",
-      options: ['Good night', 'Good evening', 'Good day'],
-      correctAnswer: 'Good day',
+      question: "How do you say 'Nice to meet you' in Icelandic?",
+      options: ['Gaman að kynnast þér', 'Takk fyrir', 'Skilja ekki'],
+      correctAnswer: 'Gaman að kynnast þér',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
   {
     type: 'WordOrder',
     props: {
-      question: "Translate 'Komdu sæll, hvað heitir þú?' to English:",
-      words: ['name', 'Hello', 'my', 'Takk', 'is', 'Andri'],
-      correctAnswer: 'Hello Andri',
+      question: "Translate 'She does not understand' to Icelandic:",
+      words: ['Hún', 'skilur', 'ekki', 'Hann', 'Kynnast'],
+      correctAnswer: 'Hún skilur ekki',
+      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "What is 'Thank you' in Icelandic?",
+      options: ['Takk', 'Hvaðan', 'Er', 'Þú'],
+      correctAnswer: 'Takk',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
@@ -154,194 +164,56 @@ export const questionbankLevel2: Question[] = [
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Morning', icelandic: 'Morgunn' },
-        { english: 'Night', icelandic: 'Nótt' },
-        { english: 'Day', icelandic: 'Dagur' }
-      ],
-      onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "How do you say 'I do not understand' in Icelandic?",
-      options:  ['Ég skil ekki', 'Ég er frá', 'Ég veit'],
-      correctAnswer: 'Ég skil ekki',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'Can you help me?' to Icelandic:",
-      words: ['hjálpað', 'mér', 'Getur', 'þú', 'að'],
-      correctAnswer: 'Getur þú hjálpað mér',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'Matching',
-    props: {
-      pairs:  [
-        { english: 'Help', icelandic: 'Hjálp' },
-        { english: 'Understand', icelandic: 'Skilja' },
-        { english: 'Speak', icelandic: 'Tala' }
-        ],
-      onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'Do you speak English?' to Icelandic:",
-      words: ['Talar', 'þú', 'ensku', 'segir', 'halló'],
-      correctAnswer: 'Talar þú ensku',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "What is 'You are welcome' in Icelandic?",
-      words: ['Verði', 'þér', 'að', 'góðu', 'takk', 'bless', 'þú'],
-      correctAnswer: 'Verði þér að góðu',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'Thank you. What is your name?' to Icelandic:",
-      words: ['heiti', 'halló', 'Ég', 'Takk', 'Andri', 'hvað', 'heitir', 'þú'],
-      correctAnswer: 'Takk hvað heitir þú',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'Matching',
-    props: {
-      pairs: [
-        { english: 'Please', icelandic: 'Vinsamlegast' },
-        { english: 'Hello', icelandic: 'Halló' },
-        { english: 'Yes', icelandic: 'Já' },
-        { english: 'Bye', icelandic: 'Bless' },
-      ],
-      onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "What does 'Góðan nótt' mean in English?",
-      options: ['Good night', 'Good morning', 'Good day'],
-      correctAnswer: 'Good night',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'Halló Pan' to English:",
-      words: ['name', 'Hello', 'my', 'Takk', 'is', 'Pan'],
-      correctAnswer: 'Hello Pan',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'Matching',
-    props: {
-      pairs: [
-        { english: 'Good', icelandic: 'Góður' },
-        { english: 'Night', icelandic: 'Nótt' },
-        { english: 'Day', icelandic: 'Dagur' },
-        { english: 'Evening', icelandic: 'Kvöld' },
-      ],
-      onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "How do you say 'I do not understand' in Icelandic?",
-      options:  ['Ég skil ekki', 'Ég er frá', 'Ég veit'],
-      correctAnswer: 'Ég skil ekki',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'I can help you' to Icelandic:",
-      words: ['Ég','get','hjálpað', 'þér', 'mér', 'Getur', 'þú', 'að'],
-      correctAnswer: 'Ég get hjálpað þér',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'Matching',
-    props: {
-      pairs:  [
-        { english: 'Help', icelandic: 'Hjálp' },
-        { english: 'Understand', icelandic: 'Skilja' },
+        { english: 'Where from', icelandic: 'Hvaðan' },
+        { english: 'Are', icelandic: 'Er' },
         { english: 'You', icelandic: 'Þú' },
-        { english: 'I', icelandic: 'Ég' }
-        ],
-      onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'Do you speak Icelandic?' to Icelandic:",
-      words: ['Talar', 'þú', 'ensku', 'segir', 'halló', 'íslensku'],
-      correctAnswer: 'Talar þú íslensku',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "What is 'Hello' in Icelandic?",
-      options: ['Halló', 'Bless', 'Takk'],
-      correctAnswer: 'Halló',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'My name is Andri' to Icelandic:",
-      words: ['heiti', 'halló', 'Ég', 'Takk', 'Andri'],
-      correctAnswer: 'Ég heiti Andri',
-      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
-    }
-  },
-  {
-    type: 'Matching',
-    props: {
-      pairs: [
-        { english: 'Goodbye', icelandic: 'Bless' },
-        { english: 'Yes', icelandic: 'Já' },
-        { english: 'No', icelandic: 'Nei' }
+        { english: 'Understand', icelandic: 'Skilja' }
       ],
       onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
   {
+    type: 'WordOrder',
+    props: {
+      question: "Translate 'He is from Iceland' to Icelandic:",
+      words: ['Hann', 'er', 'frá', 'Íslandi'],
+      correctAnswer: 'Hann er frá Íslandi',
+      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
     type: 'MultipleChoice',
     props: {
-      question: "What is 'Bye' in Icelandic?",
-      options: ['Halló', 'Bless', 'Takk'],
-      correctAnswer: 'Bless',
+      question: "What does 'Takk fyrir' mean?",
+      options: ['Thank you', 'I don’t understand', 'Where are you from?'],
+      correctAnswer: 'Thank you',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
   {
     type: 'WordOrder',
     props: {
-      question: "Translate 'Hello Andri' to Icelandic:",
-      words: ['heiti', 'Halló', 'Ég', 'Takk', 'Andri'],
-      correctAnswer: 'Halló Andri',
+      question: "Translate 'Does he understand' to Icelandic:",
+      words: ['Skilur', 'hann', 'að', 'gaman', 'hún', 'takk', 'frá'],
+      correctAnswer: 'Skilur hann',
+      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "Choose the Icelandic translation for 'She understands.'",
+      options: ['Hann skilur', 'Hún skilur', 'Þau skilja', 'Ég skil'],
+      correctAnswer: 'Hún skilur',
+      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
+    type: 'WordOrder',
+    props: {
+      question: "His name is Bjarni, not Árni' to Icelandic:",
+      words: ['Hann', 'heitir', 'Bjarni', 'ekki', 'Árni', 'Hún', 'Takk'],
+      correctAnswer: 'Hann heitir Bjarni ekki Árni',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
@@ -350,8 +222,9 @@ export const questionbankLevel2: Question[] = [
     props: {
       pairs: [
         { english: 'I', icelandic: 'Ég' },
-        { english: 'Bye', icelandic: 'Bless' },
-        { english: 'Yes', icelandic: 'Já' }
+        { english: 'To understand', icelandic: 'Að skilja' },
+        { english: 'No', icelandic: 'Nei' },
+        { english: 'Takk', icelandic: 'Thanks' },
       ],
       onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
@@ -359,18 +232,27 @@ export const questionbankLevel2: Question[] = [
   {
     type: 'MultipleChoice',
     props: {
-      question: "What is 'Thanks' in Icelandic?",
-      options: ['Halló', 'Bless', 'Takk'],
-      correctAnswer: 'Takk',
+      question: "What does 'Hvaðan ert þú?' mean?",
+      options: ['Where are you from?', 'What are you doing?', 'How are you?', 'Who are you?'],
+      correctAnswer: 'Where are you from?',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
   {
     type: 'WordOrder',
     props: {
-      question: "Translate 'I am Andri' to Icelandic:",
-      words: ['er', 'halló', 'Ég', 'Takk', 'Andri'],
-      correctAnswer: 'Ég er Andri',
+      question: "Translate 'Where is he from?' to Icelandic:",
+      words: ['Hvaðan', 'er', 'hann', 'Kynnast'],
+      correctAnswer: 'Hvaðan er hann',
+      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'I don’t understand' in Icelandic?",
+      options: ['Ég skil ekki', 'Ég er hamingjusamur', 'Ég er frá Íslandi', 'Takk fyrir'],
+      correctAnswer: 'Ég skil ekki',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
@@ -378,9 +260,10 @@ export const questionbankLevel2: Question[] = [
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Hello', icelandic: 'Halló' },
         { english: 'Yes', icelandic: 'Já' },
-        { english: 'No', icelandic: 'Nei' }
+        { english: 'To meet', icelandic: 'Að kynnast' },
+        { english: 'He', icelandic: 'Hann' },
+        { english: 'She', icelandic: 'Hún' }
       ],
       onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
@@ -388,10 +271,31 @@ export const questionbankLevel2: Question[] = [
   {
     type: 'WordOrder',
     props: {
-      question: "Translate 'Hello, what is your name?' to Icelandic:",
-      words: ['heiti', 'Halló', 'Ég', 'hvað', 'Andri', 'heitir', 'þú'],
-      correctAnswer: 'Halló hvað heitir þú',
+      question: "Translate 'Do you understand Icelandic' to Icelandic:",
+      words: ['Skilur', 'þú', 'íslensku', 'læra', 'að',],
+      correctAnswer: 'Skilur þú íslensku',
       onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "Choose the correct translation for 'She is from France.'",
+      options: ['Hún er frá Frakklandi', 'Hann er frá Frakklandi', 'Þau eru frá Frakklandi'],
+      correctAnswer: 'Hún er frá Frakklandi',
+      onAnswer: (_, __) => { console.log('This should never be used or run, just here to fulfil the interface.') }
+    }
+  },
+  {
+    type: 'Matching',
+    props: {
+      pairs: [
+        { english: 'He', icelandic: 'Hann' },
+        { english: 'To meet', icelandic: 'Kynnast' },
+        { english: 'Not', icelandic: 'Ekki' },
+        { english: 'Where from', icelandic: 'Hvaðan' }
+      ],
+      onAnswer: (_: any) => { console.log('This should never be used or run, just here to fulfil the interface.') }
     }
   },
 ];

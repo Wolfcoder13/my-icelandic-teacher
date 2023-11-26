@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { helloBubble } from '../components/svgAssets';
+import { helloBubble, manInCircle } from '../components/svgAssets';
 
 import LessonCard from '../components/LessonCard'
 
@@ -31,7 +31,7 @@ export default function Home() {
                   notesLink='/lesson/two/guidebook'
                   title='2. Greetings & More'
                   text='Here we keep learning hellos, but expand a little on the vocabulary.'
-                  svg={helloBubble}
+                  svg={manInCircle}
                 />
 
                 <LessonCard
