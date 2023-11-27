@@ -84,3 +84,26 @@ hvort
 
 og
 eða
+
+
+## Pælingar
+
+Numbers (Tölur): Introducing numbers can be very useful for everyday interactions like shopping, telling time, etc.
+
+Basic Verbs (Sagnir): Expand the verb vocabulary with commonly used verbs like 'to go' (að fara), 'to come' (að koma), 'to have' (að hafa), 'to do/make' (að gera).
+
+Colors (Litir): Teaching basic colors like red (rauður), blue (blár), green (grænn), etc.
+
+Days of the Week (Dagar vikunnar): Start introducing days of the week as this is practical for making plans and appointments.
+
+Simple Prepositions (Forsetningar): Words like 'in' (í), 'on' (á), 'under' (undir) are essential for constructing sentences.
+
+Food Items (Matvæli): Introduce common food items, which can be helpful in dining scenarios, like bread (brauð), milk (mjólk), water (vatn).
+
+Common Adjectives (Lýsingarorð): Introduce simple adjectives like big (stór), small (lítill), hot (heitur), cold (kaldur).
+
+Family Members (Fjölskyldumeðlimir): Words like mother (móðir), father (faðir), sister (systir), brother (bróðir) can be used to talk about family.
+
+Basic Question Words (Spurningarorð): Further expand on question words like 'why' (af hverju), 'when' (hvenær), 'which' (hvaða).
+
+Expressions of Time (Tímatjáning): Introduce simple time-telling phrases like 'today' (í dag), 'tomorrow' (á morgun), 'yesterday' (í gær).

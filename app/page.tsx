@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { helloBubble, manInCircle } from '../components/svgAssets';
+import { helloBubble, manInCircle, numbers } from '../components/svgAssets';
 
 import LessonCard from '../components/LessonCard'
 
@@ -29,17 +29,17 @@ export default function Home() {
                 <LessonCard
                   href='/lesson/two'
                   notesLink='/lesson/two/guidebook'
-                  title='2. Greetings & More'
-                  text='Here we keep learning hellos, but expand a little on the vocabulary.'
+                  title='2. Meeting new people'
+                  text='Here we learn how to meet new people. We also expand on the vocabulary for me, you, him and her.'
                   svg={manInCircle}
                 />
 
                 <LessonCard
                   href='/lesson/three'
                   notesLink='/lesson/three/guidebook'
-                  title='3. GPT GENERATED lesson'
-                  text='This is probably wrong, and too hard because chatgpt tried creating the questions from scratch.'
-                  svg={helloBubble}
+                  title='3. From zero to hero, or ten actually'
+                  text='In this lesson we learn the basic ways to say numbers from zero to ten. We will learn other ways to say these number in other situations.'
+                  svg={numbers}
                 />
               </div>
             </div>

@@ -304,193 +304,249 @@ export const questionbankLevel3: Question[] = [
   {
     type: 'MultipleChoice',
     props: {
-      question: "How do you say 'Good night' in Icelandic?",
-      options: ['Góðan daginn', 'Góða nótt', 'Gott kvöld'],
-      correctAnswer: 'Góða nótt',
-      onAnswer: (_, __) => { }
+      question: "How do you say 'zero' in Icelandic?",
+      options: ['Núll', 'Einn', 'Tveir', 'Þrír'],
+      correctAnswer: 'Núll',
+      onAnswer: (_, __) => { /* Function implementation */ }
     }
   },
   {
-    type: 'WordOrder',
+    type: 'MultipleChoice',
     props: {
-      question: "Translate 'I need help' to Icelandic:",
-      words: ['Ég', 'þarf', 'hjálp', 'halló', 'Þú'],
-      correctAnswer: 'Ég þarf hjálp',
-      onAnswer: (_, __) => { }
+      question: "How do you say 'one' in Icelandic?",
+      options: ['Fjórir', 'Einn', 'Fimm', 'Sex'],
+      correctAnswer: 'Einn',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'two' in Icelandic?",
+      options: ['Átta', 'Sjö', 'Tveir', 'Níu'],
+      correctAnswer: 'Tveir',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'three' in Icelandic?",
+      options: ['Þrír', 'Tíu', 'Fimm', 'Einn'],
+      correctAnswer: 'Þrír',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'four' in Icelandic?",
+      options: ['Fjórir', 'Sex', 'Sjö', 'Tveir'],
+      correctAnswer: 'Fjórir',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'five' in Icelandic?",
+      options: ['Einn', 'Fimm', 'Núll', 'Þrír'],
+      correctAnswer: 'Fimm',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'six' in Icelandic?",
+      options: ['Sex', 'Tíu', 'Fjórir', 'Einn'],
+      correctAnswer: 'Sex',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'seven' in Icelandic?",
+      options: ['Sjö', 'Tveir', 'Fimm', 'Níu'],
+      correctAnswer: 'Sjö',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'eight' in Icelandic?",
+      options: ['Átta', 'Sex', 'Einn', 'Þrír'],
+      correctAnswer: 'Átta',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'nine' in Icelandic?",
+      options: ['Níu', 'Fjórir', 'Sjö', 'Tveir'],
+      correctAnswer: 'Níu',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'MultipleChoice',
+    props: {
+      question: "How do you say 'ten' in Icelandic?",
+      options: ['Tíu', 'Fimm', 'Einn', 'Sex'],
+      correctAnswer: 'Tíu',
+      onAnswer: (_, __) => { /* Function implementation */ }
     }
   },
   {
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Water', icelandic: 'Vatn' },
-        { english: 'Fire', icelandic: 'Eldur' },
-        { english: 'Wind', icelandic: 'Vindur' }
+        { english: 'Zero', icelandic: 'Núll' },
+        { english: 'One', icelandic: 'Einn' },
+        { english: 'Two', icelandic: 'Tveir' },
+        { english: 'Three', icelandic: 'Þrír' }
       ],
-      onAnswer: (_: any) => { }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "What does 'Hvernig hefur þú það?' mean?",
-      options: ['How are you?', 'What is your name?', 'Where are you from?'],
-      correctAnswer: 'How are you?',
-      onAnswer: (_, __) => { }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'The cat sleeps on the chair' to Icelandic:",
-      words: ['Kötturinn', 'sefur', 'á', 'stólnum', 'vaknar', 'borðinu', 'gólfinu'],
-      correctAnswer: 'Kötturinn sefur á stólnum',
-      onAnswer: (_, __) => { }
+      onAnswer: (_: any) => { /* Function implementation */ }
     }
   },
   {
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Tree', icelandic: 'Tré' },
-        { english: 'Flower', icelandic: 'Blóm' },
-        { english: 'Grass', icelandic: 'Gras' }
+        { english: 'Four', icelandic: 'Fjórir' },
+        { english: 'Five', icelandic: 'Fimm' },
+        { english: 'Six', icelandic: 'Sex' },
+        { english: 'Seven', icelandic: 'Sjö' }
       ],
-      onAnswer: (_: any) => { }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "Which phrase means 'See you later' in Icelandic?",
-      options: ['Sjáumst síðar', 'Góðan dag', 'Takk fyrir'],
-      correctAnswer: 'Sjáumst síðar',
-      onAnswer: (_, __) => { }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'It is sunny today' to Icelandic:",
-      words: ['Það', 'er', 'sólríkt', 'í', 'dag', 'á', 'morgun'],
-      correctAnswer: 'Það er sólríkt í dag',
-      onAnswer: (_, __) => { }
+      onAnswer: (_: any) => { /* Function implementation */ }
     }
   },
   {
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Snow', icelandic: 'Snjór' },
-        { english: 'Rain', icelandic: 'Rigning' },
-        { english: 'Cloud', icelandic: 'Ský' }
+        { english: 'Eight', icelandic: 'Átta' },
+        { english: 'Nine', icelandic: 'Níu' },
+        { english: 'Ten', icelandic: 'Tíu' },
+        { english: 'Zero', icelandic: 'Núll' }
       ],
-      onAnswer: (_: any) => { }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "What is 'I am happy' in Icelandic?",
-      options: ['Ég er hamingjusamur', 'Ég er þreyttur', 'Ég er sorgmæddur'],
-      correctAnswer: 'Ég er hamingjusamur',
-      onAnswer: (_, __) => { }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "How do you say 'Good evening' in Icelandic?",
-      options: ['Góðan daginn', 'Góða nótt', 'Gott kvöld'],
-      correctAnswer: 'Góða kvöld',
-      onAnswer: (_, __) => { }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'I don't need help' to Icelandic:",
-      words: ['Ég', 'þarf', 'hjálp', 'halló', 'Þú', 'ekki'],
-      correctAnswer: 'Ég þarf ekki hjálp',
-      onAnswer: (_, __) => { }
+      onAnswer: (_: any) => { /* Function implementation */ }
     }
   },
   {
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Day', icelandic: 'Dagur' },
-        { english: 'Evening', icelandic: 'Kvöld' },
-        { english: 'Night', icelandic: 'Nótt' }
+        { english: 'One', icelandic: 'Einn' },
+        { english: 'Two', icelandic: 'Tveir' },
+        { english: 'Three', icelandic: 'Þrír' },
+        { english: 'Four', icelandic: 'Fjórir' }
       ],
-      onAnswer: (_: any) => { }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "What does 'Hvað heitir þú' mean?",
-      options: ['How are you?', 'What is your name?', 'Where are you from?'],
-      correctAnswer: 'What is your name?',
-      onAnswer: (_, __) => { }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'The dog sleeps on the chair' to Icelandic:",
-      words: ['Hundurinn', 'sefur', 'á', 'stólnum', 'vaknar', 'borðinu', 'gólfinu'],
-      correctAnswer: 'Hundurinn sefur á stólnum',
-      onAnswer: (_, __) => { }
+      onAnswer: (_: any) => { /* Function implementation */ }
     }
   },
   {
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'You', icelandic: 'Þú' },
-        { english: 'Hann', icelandic: 'He' },
-        { english: 'Hún', icelandic: 'She' }
+        { english: 'Five', icelandic: 'Fimm' },
+        { english: 'Six', icelandic: 'Sex' },
+        { english: 'Seven', icelandic: 'Sjö' },
+        { english: 'Eight', icelandic: 'Átta' }
       ],
-      onAnswer: (_: any) => { }
-    }
-  },
-  {
-    type: 'MultipleChoice',
-    props: {
-      question: "Which phrase means 'See you this evening' in Icelandic?",
-      options: ['Sjáumst síðar', 'Sjáumst í kvöld', 'Takk fyrir'],
-      correctAnswer: 'Sjáumst í kvöld',
-      onAnswer: (_, __) => { }
-    }
-  },
-  {
-    type: 'WordOrder',
-    props: {
-      question: "Translate 'It is raining today' to Icelandic:",
-      words: ['Það', 'er', 'rigning', 'í', 'dag', 'á', 'morgun'],
-      correctAnswer: 'Það er rigning í dag',
-      onAnswer: (_, __) => { }
+      onAnswer: (_: any) => { /* Function implementation */ }
     }
   },
   {
     type: 'Matching',
     props: {
       pairs: [
-        { english: 'Sun', icelandic: 'Sól' },
-        { english: 'Cloud', icelandic: 'Ský' },
-        { english: 'Dog', icelandic: 'Hundur' }
+        { english: 'Nine', icelandic: 'Níu' },
+        { english: 'Ten', icelandic: 'Tíu' },
+        { english: 'Zero', icelandic: 'Núll' },
+        { english: 'One', icelandic: 'Einn' }
       ],
-      onAnswer: (_: any) => { }
+      onAnswer: (_: any) => { /* Function implementation */ }
     }
   },
   {
-    type: 'MultipleChoice',
+    type: 'Matching',
     props: {
-      question: "What is 'I am sad' in Icelandic?",
-      options: ['Ég er hamingjusamur', 'Ég er þreyttur', 'Ég er sorgmæddur'],
-      correctAnswer: 'Ég er sorgmæddur',
-      onAnswer: (_, __) => { }
+      pairs: [
+        { english: 'Two', icelandic: 'Tveir' },
+        { english: 'Three', icelandic: 'Þrír' },
+        { english: 'Four', icelandic: 'Fjórir' },
+        { english: 'Five', icelandic: 'Fimm' }
+      ],
+      onAnswer: (_: any) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'Matching',
+    props: {
+      pairs: [
+        { english: 'Six', icelandic: 'Sex' },
+        { english: 'Seven', icelandic: 'Sjö' },
+        { english: 'Eight', icelandic: 'Átta' },
+        { english: 'Nine', icelandic: 'Níu' }
+      ],
+      onAnswer: (_: any) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'Matching',
+    props: {
+      pairs: [
+        { english: 'Ten', icelandic: 'Tíu' },
+        { english: 'Zero', icelandic: 'Núll' },
+        { english: 'One', icelandic: 'Einn' },
+        { english: 'Two', icelandic: 'Tveir' }
+      ],
+      onAnswer: (_: any) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'Matching',
+    props: {
+      pairs: [
+        { english: 'Three', icelandic: 'Þrír' },
+        { english: 'Four', icelandic: 'Fjórir' },
+        { english: 'Five', icelandic: 'Fimm' },
+        { english: 'Six', icelandic: 'Sex' }
+      ],
+      onAnswer: (_: any) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'WordOrder',
+    props: {
+      question: "Translate 'He is seven years old' to Icelandic.",
+      words: ['Ég', 'er', 'sjö', 'ára'],
+      correctAnswer: 'Hann er sjö ára',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'WordOrder',
+    props: {
+      question: "Translate 'She has three dogs' to Icelandic.",
+      words: ['Hún', 'hefur', 'þrjá', 'hunda'],
+      correctAnswer: 'Hún hefur þrjá hunda',
+      onAnswer: (_, __) => { /* Function implementation */ }
+    }
+  },
+  {
+    type: 'WordOrder',
+    props: {
+      question: "Translate 'Ten birds are flying' to Icelandic.",
+      words: ['Tíu', 'fuglar', 'eru', 'að', 'fljúga'],
+      correctAnswer: 'Tíu fuglar eru að fljúga',
+      onAnswer: (_, __) => { /* Function implementation */ }
     }
   }
 ];
+
+

@@ -5,7 +5,7 @@ import React from 'react';
 const GuideBookPage: React.FC = () => {
   return (
     <div className="bg-gray-700 dark:bg-gray-700 min-h-screen p-6 flex justify-center items-center">
-      <div className="bg-white max-w-lg w-full rounded-lg shadow-md p-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-semibold text-icelandic-blue mb-4">First Lesson</h2>
         <p className="text-gray-800">Welcome to your first lesson in Icelandic! This journey starts with some simple yet essential words and phrases that will lay the foundation for your Icelandic language skills.</p>
         <p className="text-gray-800 mt-4">In this lesson, our focus will be on introducing you to basic but crucial Icelandic words. By the end of this lesson, you will be familiar with greetings, and how to introduce yourself in Icelandic. Let&apos;s dive into the words we will cover:</p>
