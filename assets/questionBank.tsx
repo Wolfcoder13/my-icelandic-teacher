@@ -524,7 +524,7 @@ export const questionbankLevel3: Question[] = [
     type: 'WordOrder',
     props: {
       question: "Translate 'He is seven years old' to Icelandic.",
-      words: ['Ég', 'er', 'sjö', 'ára'],
+      words: ['Hann', 'er', 'sjö', 'ára'],
       correctAnswer: 'Hann er sjö ára',
       onAnswer: (_, __) => { /* Function implementation */ }
     }

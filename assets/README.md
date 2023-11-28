@@ -39,6 +39,53 @@ Leggjum áherslu á eftirfarandi orð
 
 questions vs statements reverse the noun and verb.
 
+
+## Lesson Tölur
+https://is.wikipedia.org/wiki/T%C3%B6luor%C3%B0
+Þurfum að vera búin að kenna að nafnorð eru með kyn áður en við förum hingað.
+
+### tölur 0 - 10
+
+Núll (Zero)
+Einn (kk) / Ein (kvk) / Eitt (hk) (One)
+Tveir (kk) / Tvær (kvk) / Tvö (hk) (Two)
+Þrír (kk) / Þrjár (kvk) / Þrjú (hk) (Three)
+Fjórir (kk) / Fjórar (kvk) / Fjögur (hk) (Four)
+Fimm (Five)
+Sex (Six)
+Sjö (Seven)
+Átta (Eight)
+Níu (Nine)
+Tíu (Ten)
+
+### raðtölur 0 - 10
+
+Fyrsti (kk) / Fyrsta (kvk/hk) (First)
+Annar (kk) / Önnur (kvk) / Annað (hk) (Second)
+Þriðji (kk) / Þriðja (kvk/hk) (Third)
+Fjórði (kk) / Fjórða (kvk/hk) (Fourth)
+Fimmti (kk) / Fimmta (kvk/hk) (Fifth)
+Sjötti (kk) / Sjötta (kvk/hk) (Sixth)
+Sjöundi (kk) / Sjöunda (kvk/hk) (Seventh)
+Áttundi (kk) / Áttunda (kvk/hk) (Eighth)
+Níundi (kk) / Níunda (kvk/hk) (Ninth)
+Tíundi (kk) / Tíunda (kvk/hk) (Tenth)
+
+### tölur 11 - 20
+
+### raðtölur 11 - 20
+
+## tölur - tugir, hundrað, þúsund, milljón, milljarður
+
+### raðtölur - tugir, hundrað, þúsund, milljón, milljarður
+
+
+
+
+
+
+
+
 ## Lesson Seinna
 
 
