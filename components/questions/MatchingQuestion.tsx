@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { shuffleArray } from '../../utils/arrayUtils'
+import { shuffleArray } from '../../utils/arrayUtils';
 
 export interface MatchingPair {
   english: string;
@@ -11,53 +11,56 @@ export interface MatchingQuestionProps {
   onAnswer: (isCorrect: boolean) => void;
 }
 
-
 const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) => {
   const [shuffledIcelandicWords, setShuffledIcelandicWords] = useState<string[]>([]);
-  const [selectedEnglish, setSelectedEnglish] = useState<string | null>(null);
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
+  const [selectedWordLang, setSelectedWordLang] = useState<'english' | 'icelandic' | null>(null);
   const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
   const [isShaking, setIsShaking] = useState(false);
 
   useEffect(() => {
-    // Shuffle Icelandic words and set to state
-    const icelandicWords = pairs.map(pair => pair.icelandic);
-    setShuffledIcelandicWords(shuffleArray(icelandicWords));
-
-    setSelectedEnglish(null);
+    setShuffledIcelandicWords(shuffleArray(pairs.map(pair => pair.icelandic)));
+    setSelectedWord(null);
+    setSelectedWordLang(null);
     setMatchedPairs(new Set());
     setIsShaking(false);
   }, [pairs]);
 
-
-  const handleEnglishClick = (word: string) => {
-    setSelectedEnglish(word === selectedEnglish ? null : word);
+  const resetSelection = () => {
+    setSelectedWord(null);
+    setSelectedWordLang(null);
+    setIsShaking(false);
   };
 
-  const handleIcelandicClick = (word: string) => {
-    if (selectedEnglish) {
-      const pair = pairs.find(p => p.english === selectedEnglish);
-      if (pair && pair.icelandic === word) {
-        // Convert Set to Array, add the new item, then convert back to Set
-        setMatchedPairs(new Set([...Array.from(matchedPairs), selectedEnglish]));
-        setSelectedEnglish(null); // Deselect on correct match
-        if (matchedPairs.size + 1 === pairs.length) {
+  const handleWordClick = (word: string, lang: 'english' | 'icelandic') => {
+    if (selectedWord && selectedWordLang && selectedWordLang !== lang) {
+      const matchingPair = pairs.find(pair =>
+        (lang === 'english' && pair.english === word && pair.icelandic === selectedWord) ||
+        (lang === 'icelandic' && pair.icelandic === word && pair.english === selectedWord)
+      );
+
+      if (matchingPair) {
+        setMatchedPairs(new Set([...Array.from(matchedPairs), matchingPair.english, matchingPair.icelandic]));
+        resetSelection();
+        if (matchedPairs.size + 2 >= pairs.length * 2) {
           onAnswer(true);
         }
       } else {
         setIsShaking(true);
-        setTimeout(() => setIsShaking(false), 500); // Reset shaking after animation duration
-        setSelectedEnglish(null); // Deselect on incorrect match
+        setTimeout(() => resetSelection(), 500);
       }
+    } else {
+      setSelectedWord(word);
+      setSelectedWordLang(lang);
     }
   };
 
-  const isIcelandicWordMatched = (icelandicWord: string) => {
-    return pairs.some(pair => pair.icelandic === icelandicWord && matchedPairs.has(pair.english));
+  const isWordMatched = (word: string) => {
+    return matchedPairs.has(word);
   };
 
   return (
     <div className={`flex flex-col items-center justify-center ${isShaking ? 'animate-shake' : ''}`}>
-      {/* Instruction Text */}
       <div className="mb-4">
         <p className="text-center font-semibold">Match the English words with their Icelandic counterparts:</p>
       </div>
@@ -66,14 +69,14 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
           {pairs.map(pair => (
             <button
               key={pair.english}
-              onClick={() => handleEnglishClick(pair.english)}
-              className={`my-1 p-2 rounded border-2 ${selectedEnglish === pair.english
+              onClick={() => handleWordClick(pair.english, 'english')}
+              className={`my-1 p-2 rounded border-2 ${selectedWord === pair.english && selectedWordLang === 'english'
                 ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue'
-                : matchedPairs.has(pair.english)
+                : isWordMatched(pair.english)
                   ? 'bg-gray-400 border-transparent text-white'
                   : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent text-white'
                 }`}
-              disabled={matchedPairs.has(pair.english)}
+              disabled={isWordMatched(pair.english)}
             >
               {pair.english}
             </button>
@@ -83,17 +86,21 @@ const MatchingQuestion: React.FC<MatchingQuestionProps> = ({ pairs, onAnswer }) 
           {shuffledIcelandicWords.map((word, index) => (
             <button
               key={index}
-              onClick={() => handleIcelandicClick(word)}
-              className={`my-1 p-2 rounded text-white border-2 ${isIcelandicWordMatched(word) ? 'bg-gray-400 border-transparent' : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent'
+              onClick={() => handleWordClick(word, 'icelandic')}
+              className={`my-1 p-2 rounded border-2 ${selectedWord === word && selectedWordLang === 'icelandic'
+                ? 'shadow-inner bg-white border-solid border-icelandic-red text-icelandic-blue'
+                : isWordMatched(word)
+                  ? 'bg-gray-400 border-transparent text-white'
+                  : 'bg-icelandic-blue hover:bg-icelandic-blue/90 border-transparent text-white'
                 }`}
-              disabled={isIcelandicWordMatched(word)}
+              disabled={isWordMatched(word)}
             >
               {word}
             </button>
           ))}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
