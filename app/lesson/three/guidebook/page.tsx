@@ -7,7 +7,7 @@ const GuideBookPage: React.FC = () => {
     <div className="bg-gray-700 dark:bg-gray-700 min-h-screen p-6 flex justify-center items-center">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-semibold text-icelandic-blue mb-4">Third Lesson: Numbers in All Forms</h2>
-        <p className="text-gray-800">Welcome to an In-Depth Look at Icelandic Numbers! In this lesson, we're not just learning the basic numbers from 0 to 10; we're diving into their different forms based on gender and their ordinal counterparts. This is crucial in Icelandic as nouns have genders, and numbers often adapt their forms to match.</p>
+        <p className="text-gray-800">Welcome to an In-Depth Look at Icelandic Numbers! In this lesson, we&apos;re not just learning the basic numbers from 0 to 10; we&apos;re diving into their different forms based on gender and their ordinal counterparts. This is crucial in Icelandic as nouns have genders, and numbers often adapt their forms to match.</p>
 
         <h3 className="text-xl font-semibold text-icelandic-blue mb-2 mt-4">Numbers 0 to 10 in Icelandic: A Comprehensive Guide</h3>
         <ul className="list-disc list-inside mb-4 text-gray-800">
@@ -43,11 +43,11 @@ const GuideBookPage: React.FC = () => {
         <ol className="list-decimal list-inside mb-4 text-gray-800">
           <li><strong>Learn Each Form</strong>: Pay attention to the gender variations of numbers and their ordinal forms.</li>
           <li><strong>Practice Through Context</strong>: Use the provided exercises to apply these numbers in different sentences and scenarios.</li>
-          <li><strong>Listen and Repeat</strong>: Focus on pronunciation to ensure you're not just reading but also speaking these numbers correctly.</li>
+          <li><strong>Listen and Repeat</strong>: Focus on pronunciation to ensure you&apos;re not just reading but also speaking these numbers correctly.</li>
         </ol>
 
-        <p className="text-gray-800">Embrace the Challenge! Icelandic numbers offer a unique insight into the language's structure. While it may seem daunting at first, mastering these will significantly enhance your understanding and use of Icelandic.</p>
-        <p className="text-gray-800"><strong>Gangi þér vel!</strong> (Good luck!) You're expanding your Icelandic knowledge one number at a time!</p>
+        <p className="text-gray-800">Embrace the Challenge! Icelandic numbers offer a unique insight into the language&apos;s structure. While it may seem daunting at first, mastering these will significantly enhance your understanding and use of Icelandic.</p>
+        <p className="text-gray-800"><strong>Gangi þér vel!</strong> (Good luck!) You&apos;re expanding your Icelandic knowledge one number at a time!</p>
       </div>
     </div>
   );
